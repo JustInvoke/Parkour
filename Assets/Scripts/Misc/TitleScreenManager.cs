@@ -6,9 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class TitleScreenManager : MonoBehaviour
 {
-    [SerializeField] private string levelSceneName = "Prototype";
     public void StartOnClick() {
-        SceneManager.LoadScene(levelSceneName);
+        SceneManager.LoadScene(StringBank.LevelSceneName);
     }
 
     public void OptionsOnClick() {

@@ -150,8 +150,8 @@ MonoBehaviour:
   standSprite: {fileID: 2634816806227739618, guid: b288d389b0d4748428f8c796b5eec5e9, type: 3}
   crouchSprite: {fileID: 2678546524522977710, guid: b288d389b0d4748428f8c796b5eec5e9, type: 3}
   minSpeed: 5
-  maxSpeed: 10
-  accel: 10
+  maxSpeed: 18
+  accel: 5
   jumpForce: 14
   rightInput: 275
   leftInput: 276

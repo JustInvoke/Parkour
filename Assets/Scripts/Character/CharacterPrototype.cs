@@ -10,10 +10,10 @@ public class CharacterPrototype : MonoBehaviour
     private SpriteRenderer rend;
     public Sprite standSprite; // Sprite used while standing
     public Sprite crouchSprite; // Sprite used while crouching
-    public float minSpeed = 1.0f; // Minimum allowed movement speed
-    public float maxSpeed = 2.0f; // Maximum allowed movement speed
-    public float accel = 1.0f;
-    public float jumpForce = 1.0f;
+    public float minSpeed = 5.0f; // Minimum allowed movement speed
+    public float maxSpeed = 18.0f; // Maximum allowed movement speed
+    public float accel = 5.0f;
+    public float jumpForce = 14.0f;
     public KeyCode rightInput = KeyCode.RightArrow; // Max speed movement
     public KeyCode leftInput = KeyCode.LeftArrow; // Min speed movement
     public KeyCode jumpInput = KeyCode.UpArrow;

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7754383747663080226}
   - component: {fileID: 7754383747663080237}
   - component: {fileID: -519129204465342872}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: TestChunk8x2Hole
   m_TagString: Untagged
   m_Icon: {fileID: 0}

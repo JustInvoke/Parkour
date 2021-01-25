@@ -154,6 +154,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterPrefab: {fileID: 5490104220508936995, guid: dd94dae905c526b45bbb08c761ec57c6, type: 3}
   spawnPoint: {x: -4, y: -2, z: 0}
+  hitBoxPosition: {x: -4, y: -2, z: 0}
+  hitBoxScale: {x: 1, y: 1, z: 1}
+  hitBoxOffset: {x: 0.1, y: 0.2, z: 0}
+  levelMaskLayer:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!4 &280494206
 Transform:
   m_ObjectHideFlags: 0

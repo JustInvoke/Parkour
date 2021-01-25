@@ -157,6 +157,12 @@ MonoBehaviour:
   leftInput: 276
   jumpInput: 273
   crouchInput: 274
+  hitBoxPosition: {x: 0, y: 0, z: 0}
+  hitBoxScale: {x: 1, y: 1, z: 1}
+  hitBoxOffset: {x: 0.1, y: 0.1, z: 0}
+  levelMaskLayer:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!1 &7499033756025585271
 GameObject:
   m_ObjectHideFlags: 0

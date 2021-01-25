@@ -9,10 +9,6 @@ public class CharacterManager : MonoBehaviour
     public static GameObject Character { get { return _character; } }
     private static GameObject _character;
     public Vector3 spawnPoint;
-    public Vector3 hitBoxPosition;
-    public Vector3 hitBoxScale;
-    public Vector3 hitBoxOffset;
-    public LayerMask levelMaskLayer;
 
     private void Awake() {
         // Immediately spawn the character
@@ -29,21 +25,11 @@ public class CharacterManager : MonoBehaviour
         if (Character != null && Character.transform.position.y < -10) {
             LevelManager.ReloadLevel();
         }
-        // Reload the level if the character touches a wall
-        hitBoxPosition = Character.transform.position + hitBoxOffset;
-        hitBoxScale = Character.transform.localScale;
-        Collider2D wallCollider = Physics2D.OverlapBox(hitBoxPosition, hitBoxScale, 0, levelMaskLayer);
-        if (wallCollider != null)
-        {
-            LevelManager.ReloadLevel();
-        }
     }
 
     // Visualize the spawn point and character overlapBox
     private void OnDrawGizmosSelected() {
         Gizmos.color = Color.green;
         Gizmos.DrawWireSphere(spawnPoint, 0.5f);
-        Gizmos.color = Color.magenta;
-        Gizmos.DrawWireCube(hitBoxPosition, hitBoxScale);
     }
 }

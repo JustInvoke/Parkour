@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4277860767263922392}
   - component: {fileID: 5490104220508937004}
   - component: {fileID: -3107000642998236465}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Character
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -167,7 +167,7 @@ GameObject:
   m_Component:
   - component: {fileID: 426779042087273946}
   - component: {fileID: 2269581634188033420}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CrouchCol
   m_TagString: Untagged
   m_Icon: {fileID: 0}

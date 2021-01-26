@@ -159,13 +159,19 @@ MonoBehaviour:
   standSprite: {fileID: 2634816806227739618, guid: b288d389b0d4748428f8c796b5eec5e9, type: 3}
   crouchSprite: {fileID: 2678546524522977710, guid: b288d389b0d4748428f8c796b5eec5e9, type: 3}
   minSpeed: 5
-  maxSpeed: 10
-  accel: 10
+  maxSpeed: 18
+  accel: 5
   jumpForce: 14
   rightInput: 275
   leftInput: 276
   jumpInput: 273
   crouchInput: 274
+  hitBoxPosition: {x: 0, y: 0, z: 0}
+  hitBoxScale: {x: 1, y: 1, z: 1}
+  hitBoxOffset: {x: 0.1, y: 0.1, z: 0}
+  levelMaskLayer:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!1 &7499033756025585271
 GameObject:
   m_ObjectHideFlags: 0

@@ -27,7 +27,7 @@ public class CharacterManager : MonoBehaviour
         }
     }
 
-    // Visualize the spawn point
+    // Visualize the spawn point and character overlapBox
     private void OnDrawGizmosSelected() {
         Gizmos.color = Color.green;
         Gizmos.DrawWireSphere(spawnPoint, 0.5f);

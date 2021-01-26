@@ -10,14 +10,18 @@ public class CharacterPrototype : MonoBehaviour
     private SpriteRenderer rend;
     public Sprite standSprite; // Sprite used while standing
     public Sprite crouchSprite; // Sprite used while crouching
-    public float minSpeed = 1.0f; // Minimum allowed movement speed
-    public float maxSpeed = 2.0f; // Maximum allowed movement speed
-    public float accel = 1.0f;
-    public float jumpForce = 1.0f;
+    public float minSpeed = 5.0f; // Minimum allowed movement speed
+    public float maxSpeed = 18.0f; // Maximum allowed movement speed
+    public float accel = 5.0f;
+    public float jumpForce = 14.0f;
     public KeyCode rightInput = KeyCode.RightArrow; // Max speed movement
     public KeyCode leftInput = KeyCode.LeftArrow; // Min speed movement
     public KeyCode jumpInput = KeyCode.UpArrow;
     public KeyCode crouchInput = KeyCode.DownArrow;
+    public Vector3 hitBoxPosition;
+    public Vector3 hitBoxScale;
+    public Vector3 hitBoxOffset;
+    public LayerMask levelMaskLayer;
 
     private void Start() {
         // Cache component references
@@ -35,6 +39,14 @@ public class CharacterPrototype : MonoBehaviour
             // Add jump force
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
         }
+        // Reload the level if the character touches a wall
+        hitBoxPosition = transform.position + hitBoxOffset;
+        hitBoxScale = transform.localScale;
+        Collider2D wallCollider = Physics2D.OverlapBox(hitBoxPosition, hitBoxScale, 0, levelMaskLayer);
+        if (wallCollider != null)
+        {
+            LevelManager.ReloadLevel();
+        }
     }
 
     private void FixedUpdate() {
@@ -50,5 +62,12 @@ public class CharacterPrototype : MonoBehaviour
         standCol.enabled = !crouching;
         crouchCol.enabled = crouching;
         rend.sprite = crouching ? crouchSprite : standSprite;
+    }
+
+    // Visualize the overlap box
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.magenta;
+        Gizmos.DrawWireCube(hitBoxPosition, hitBoxScale);
     }
 }

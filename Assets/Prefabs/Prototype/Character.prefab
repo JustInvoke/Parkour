@@ -147,6 +147,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   standCol: {fileID: 4277860767263922392}
   crouchCol: {fileID: 2269581634188033420}
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 128
+  groundBox:
+    serializedVersion: 2
+    x: 0
+    y: -0.5
+    width: 1
+    height: 0.1
   standSprite: {fileID: 2634816806227739618, guid: b288d389b0d4748428f8c796b5eec5e9, type: 3}
   crouchSprite: {fileID: 2678546524522977710, guid: b288d389b0d4748428f8c796b5eec5e9, type: 3}
   minSpeed: 5

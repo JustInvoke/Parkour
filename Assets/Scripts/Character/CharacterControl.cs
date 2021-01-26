@@ -7,6 +7,10 @@ public class CharacterControl : MonoBehaviour
     private Rigidbody2D rb;
     public Collider2D standCol; // Collider used while standing
     public Collider2D crouchCol; // Collider used while crouching
+    public LayerMask groundMask; // Layer mask representing ground objects
+    private bool grounded = false; // Whether the character is standing on the ground
+    public Rect groundBox = new Rect(Vector2.zero, Vector2.one); // Dimensions for the ground overlap box
+
     private SpriteRenderer rend;
     public Sprite standSprite; // Sprite used while standing
     public Sprite crouchSprite; // Sprite used while crouching
@@ -27,7 +31,7 @@ public class CharacterControl : MonoBehaviour
 
     private void Update() {
         // Jump action
-        if (Input.GetKeyDown(jumpInput)) {
+        if (Input.GetKeyDown(jumpInput) && grounded) {
             // Reset vertical speed so it doesn't reduce jump height
             if (rb.velocity.y < 0) {
                 rb.velocity = new Vector2(rb.velocity.x, 0.0f);
@@ -38,6 +42,9 @@ public class CharacterControl : MonoBehaviour
     }
 
     private void FixedUpdate() {
+        // Check if standing on ground
+        grounded = Physics2D.OverlapBox(new Vector2(transform.position.x, transform.position.y) + groundBox.center, groundBox.size, 0.0f, groundMask) != null;
+
         // Convert key inputs to single float ranging from 0 to 1
         float moveInput = (Input.GetKey(rightInput) ? 1.0f : 0.5f) + (Input.GetKey(leftInput) ? -0.5f : 0.0f);
         // Interpolate between min and max speed
@@ -50,5 +57,10 @@ public class CharacterControl : MonoBehaviour
         standCol.enabled = !crouching;
         crouchCol.enabled = crouching;
         rend.sprite = crouching ? crouchSprite : standSprite;
+    }
+
+    private void OnDrawGizmosSelected() {
+        Gizmos.color = Color.cyan;
+        Gizmos.DrawWireCube(transform.position + new Vector3(groundBox.x, groundBox.y), new Vector3(groundBox.width, groundBox.height, 0.0f));
     }
 }

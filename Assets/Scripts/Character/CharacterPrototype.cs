@@ -19,8 +19,6 @@ public class CharacterPrototype : MonoBehaviour
     public KeyCode jumpInput = KeyCode.UpArrow;
     public KeyCode crouchInput = KeyCode.DownArrow;
 
-    [SerializeField] private SoundManager soundManager;
-
     private void Start() {
         // Cache component references
         rb = GetComponent<Rigidbody2D>();

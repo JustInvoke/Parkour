@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class CharacterControl : MonoBehaviour
 {
@@ -23,10 +24,17 @@ public class CharacterControl : MonoBehaviour
     public KeyCode jumpInput = KeyCode.UpArrow;
     public KeyCode crouchInput = KeyCode.DownArrow;
 
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip jumpSound;
+    [SerializeField] private AudioClip slideSound;
+    [SerializeField] private AudioClip stepLSound;
+    [SerializeField] private AudioClip stepRSound;
+
     private void Start() {
         // Cache component references
         rb = GetComponent<Rigidbody2D>();
         rend = GetComponent<SpriteRenderer>();
+        StartCoroutine(PlayStepSound(stepRSound));
     }
 
     private void Update() {
@@ -38,6 +46,8 @@ public class CharacterControl : MonoBehaviour
             }
             // Add jump force
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+            //Play jump sound
+            audioSource.PlayOneShot(jumpSound);
         }
     }
 
@@ -55,6 +65,9 @@ public class CharacterControl : MonoBehaviour
         // Crouch logic with colliders and sprites
         bool crouching = Input.GetKey(crouchInput);
         standCol.enabled = !crouching;
+        if (!standCol.enabled && !crouchCol.enabled) {
+            audioSource.PlayOneShot(slideSound);
+        }
         crouchCol.enabled = crouching;
         rend.sprite = crouching ? crouchSprite : standSprite;
     }
@@ -62,5 +75,17 @@ public class CharacterControl : MonoBehaviour
     private void OnDrawGizmosSelected() {
         Gizmos.color = Color.cyan;
         Gizmos.DrawWireCube(transform.position + new Vector3(groundBox.x, groundBox.y), new Vector3(groundBox.width, groundBox.height, 0.0f));
+    }
+
+    private IEnumerator PlayStepSound(AudioClip audioClip) {
+        if (grounded && standCol.enabled) {
+            audioSource.PlayOneShot(audioClip);
+        }
+
+        yield return new WaitForSeconds(0.2f);
+
+        AudioClip newSound = audioClip == stepRSound ? stepLSound : stepRSound;
+
+        StartCoroutine(PlayStepSound(newSound));
     }
 }

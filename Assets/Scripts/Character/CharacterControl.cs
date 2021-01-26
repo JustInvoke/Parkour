@@ -10,6 +10,8 @@ public class CharacterControl : MonoBehaviour
     public LayerMask groundMask; // Layer mask representing ground objects
     private bool grounded = false; // Whether the character is standing on the ground
     public Rect groundBox = new Rect(Vector2.zero, Vector2.one); // Dimensions for the ground overlap box
+    public Vector3 hitBoxScale;
+    public Vector3 hitBoxOffset;
 
     private SpriteRenderer rend;
     public Sprite standSprite; // Sprite used while standing
@@ -42,6 +44,12 @@ public class CharacterControl : MonoBehaviour
     }
 
     private void FixedUpdate() {
+        // Reload the level if the character touches a wall
+        Collider2D wallCollider = Physics2D.OverlapBox(transform.position + hitBoxOffset, hitBoxScale, 0.0f, groundMask);
+        if (wallCollider != null) {
+            LevelManager.ReloadLevel();
+        }
+
         // Check if standing on ground
         grounded = Physics2D.OverlapBox(new Vector2(transform.position.x, transform.position.y) + groundBox.center, groundBox.size, 0.0f, groundMask) != null;
 
@@ -62,5 +70,7 @@ public class CharacterControl : MonoBehaviour
     private void OnDrawGizmosSelected() {
         Gizmos.color = Color.cyan;
         Gizmos.DrawWireCube(transform.position + new Vector3(groundBox.x, groundBox.y), new Vector3(groundBox.width, groundBox.height, 0.0f));
+        Gizmos.color = Color.magenta;
+        Gizmos.DrawWireCube(transform.position + hitBoxOffset, hitBoxScale);
     }
 }

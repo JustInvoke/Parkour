@@ -7,6 +7,10 @@ public class CharacterPrototype : MonoBehaviour
     private Rigidbody2D rb;
     public Collider2D standCol; // Collider used while standing
     public Collider2D crouchCol; // Collider used while crouching
+    public Vector3 hitBoxPosition;
+    public Vector3 hitBoxScale;
+    public Vector3 hitBoxOffset;
+    public LayerMask levelMaskLayer;
     private SpriteRenderer rend;
     public Sprite standSprite; // Sprite used while standing
     public Sprite crouchSprite; // Sprite used while crouching
@@ -18,10 +22,6 @@ public class CharacterPrototype : MonoBehaviour
     public KeyCode leftInput = KeyCode.LeftArrow; // Min speed movement
     public KeyCode jumpInput = KeyCode.UpArrow;
     public KeyCode crouchInput = KeyCode.DownArrow;
-    public Vector3 hitBoxPosition;
-    public Vector3 hitBoxScale;
-    public Vector3 hitBoxOffset;
-    public LayerMask levelMaskLayer;
 
     private void Start() {
         // Cache component references
@@ -39,17 +39,17 @@ public class CharacterPrototype : MonoBehaviour
             // Add jump force
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
         }
+    }
+
+    private void FixedUpdate() {
         // Reload the level if the character touches a wall
         hitBoxPosition = transform.position + hitBoxOffset;
         hitBoxScale = transform.localScale;
         Collider2D wallCollider = Physics2D.OverlapBox(hitBoxPosition, hitBoxScale, 0, levelMaskLayer);
-        if (wallCollider != null)
-        {
+        if (wallCollider != null) {
             LevelManager.ReloadLevel();
         }
-    }
 
-    private void FixedUpdate() {
         // Convert key inputs to single float ranging from 0 to 1
         float moveInput = (Input.GetKey(rightInput) ? 1.0f : 0.5f) + (Input.GetKey(leftInput) ? -0.5f : 0.0f);
         // Interpolate between min and max speed
@@ -65,8 +65,7 @@ public class CharacterPrototype : MonoBehaviour
     }
 
     // Visualize the overlap box
-    private void OnDrawGizmosSelected()
-    {
+    private void OnDrawGizmosSelected() {
         Gizmos.color = Color.magenta;
         Gizmos.DrawWireCube(hitBoxPosition, hitBoxScale);
     }

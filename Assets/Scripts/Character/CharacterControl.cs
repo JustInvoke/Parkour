@@ -35,7 +35,7 @@ public class CharacterControl : MonoBehaviour
     private void Start() {
         // Cache component references
         rb = GetComponent<Rigidbody2D>();
-        rend = GetComponent<SpriteRenderer>();
+        rend = GetComponentInChildren<SpriteRenderer>();
         StartCoroutine(PlayStepSound(stepRSound));
     }
 

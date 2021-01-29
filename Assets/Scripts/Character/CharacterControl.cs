@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.Events;
 
 public class CharacterControl : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class CharacterControl : MonoBehaviour
     public Rect groundBox = new Rect(Vector2.zero, Vector2.one); // Dimensions for the ground overlap box
     public Vector3 hitBoxScale;
     public Vector3 hitBoxOffset;
+    public float fallLimit = -7; // If the character's y-position is less than this, then he dies
 
     private SpriteRenderer rend;
     public Sprite standSprite; // Sprite used while standing
@@ -32,6 +34,8 @@ public class CharacterControl : MonoBehaviour
     [SerializeField] private AudioClip slideSound;
     [SerializeField] private AudioClip stepLSound;
     [SerializeField] private AudioClip stepRSound;
+
+    public UnityEvent dieEvent; // Public event invoked when dying
 
     private void Start() {
         // Cache component references
@@ -62,8 +66,8 @@ public class CharacterControl : MonoBehaviour
     private void FixedUpdate() {
         // Reload the level if the character touches a wall
         Collider2D wallCollider = Physics2D.OverlapBox(transform.position + hitBoxOffset, hitBoxScale, 0.0f, groundMask);
-        if (wallCollider != null) {
-            LevelManager.ReloadLevel();
+        if (wallCollider != null || transform.position.y < fallLimit) {
+            Die();
         }
 
         // Check if standing on ground
@@ -103,5 +107,9 @@ public class CharacterControl : MonoBehaviour
         AudioClip newSound = audioClip == stepRSound ? stepLSound : stepRSound;
 
         StartCoroutine(PlayStepSound(newSound));
+    }
+
+    private void Die() {
+        dieEvent.Invoke();
     }
 }

@@ -18,13 +18,8 @@ public class CharacterManager : MonoBehaviour
     // Instantiate the character prefab at the spawn point
     public void SpawnCharacter() {
         _character = Instantiate(characterPrefab, spawnPoint, Quaternion.identity).gameObject;
-    }
-
-    private void Update() {
-        // Reload the level if the character falls off screen
-        if (Character != null && Character.transform.position.y < -10) {
-            LevelManager.ReloadLevel();
-        }
+        // Subscribe level reload to charcter die event
+        _character.GetComponent<CharacterControl>().dieEvent.AddListener(LevelManager.ReloadLevel);
     }
 
     // Visualize the spawn point and character overlapBox

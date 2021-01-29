@@ -21,6 +21,7 @@ public class CharacterControl : MonoBehaviour
     public float maxSpeed = 2.0f; // Maximum allowed movement speed
     public float accel = 1.0f;
     public float jumpForce = 1.0f;
+    public float fastFallForce = 1.0f; // Force applied when crouching while in air
     public KeyCode rightInput = KeyCode.RightArrow; // Max speed movement
     public KeyCode leftInput = KeyCode.LeftArrow; // Min speed movement
     public KeyCode jumpInput = KeyCode.UpArrow;
@@ -50,6 +51,11 @@ public class CharacterControl : MonoBehaviour
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
             //Play jump sound
             audioSource.PlayOneShot(jumpSound);
+        }
+
+        // Add fast fall force
+        if (Input.GetKeyDown(crouchInput) && !grounded) {
+            rb.AddForce(Vector2.down * fastFallForce, ForceMode2D.Impulse);
         }
     }
 

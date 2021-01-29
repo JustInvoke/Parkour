@@ -114,6 +114,7 @@ MonoBehaviour:
   maxSpeed: 18
   accel: 5
   jumpForce: 14
+  fastFallForce: 10
   rightInput: 275
   leftInput: 276
   jumpInput: 273

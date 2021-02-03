@@ -21,7 +21,11 @@ public class CharacterControl : MonoBehaviour
     public Sprite crouchSprite; // Sprite used while crouching
     public float minSpeed = 1.0f; // Minimum allowed movement speed
     public float maxSpeed = 2.0f; // Maximum allowed movement speed
-    public float accel = 1.0f;
+    public float accel = 1.0f; // Current acceleration
+    public float maxAccel = 1.5f; // Maximum acceleration
+    public float accelIncrement = 0.05f;
+    private float milestoneDistance = 1000.0f; // How long until next accel increase
+    private Vector3 lastMilestonePos = new Vector3(0, 0, 0); // Keeps track of last milestone position
     public float jumpForce = 1.0f;
     public float fastFallForce = 1.0f; // Force applied when crouching while in air
     public KeyCode rightInput = KeyCode.RightArrow; // Max speed movement
@@ -75,10 +79,24 @@ public class CharacterControl : MonoBehaviour
 
         // Convert key inputs to single float ranging from 0 to 1
         float moveInput = (Input.GetKey(rightInput) ? 1.0f : 0.5f) + (Input.GetKey(leftInput) ? -0.5f : 0.0f);
+        // Update acceleration if need be
+        if (accel < maxAccel)
+        {
+            if (Mathf.Abs(transform.position.x) - Mathf.Abs(lastMilestonePos.x) >= milestoneDistance)
+            {
+                accel += accelIncrement;
+                lastMilestonePos = transform.position;
+                minSpeed *= accel;
+                maxSpeed *= accel;
+            }
+        }
         // Interpolate between min and max speed
         float targetSpeed = Mathf.Lerp(minSpeed, maxSpeed, moveInput);
         // Add movement force
-        rb.AddForce(Vector2.right * (targetSpeed - rb.velocity.x) * accel, ForceMode2D.Force);
+        // This used to look like: Vector2.right * (targetSpeed - rb.velocity.x) * accel
+        // But I wasn't sure why it wasn't working so I had to update minSpeed and maxSpeed instead
+        // by multiplying velocity.
+        rb.AddForce(Vector2.right * (targetSpeed - rb.velocity.x), ForceMode2D.Force);
 
         // Crouch logic with colliders and sprites
         bool crouching = Input.GetKey(crouchInput);

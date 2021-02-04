@@ -113,9 +113,10 @@ MonoBehaviour:
   crouchSprite: {fileID: 21300000, guid: 7a83642838ac2374892f9e3a9dfee97e, type: 3}
   minSpeed: 5
   maxSpeed: 18
-  accel: 1
-  maxAccel: 1.5
-  accelIncrement: 0.25
+  accel: 5
+  speedup: 0
+  maxSpeedup: 10
+  speedupIncrement: 2
   jumpForce: 14
   fastFallForce: 10
   rightInput: 275

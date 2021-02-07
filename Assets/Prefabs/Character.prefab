@@ -103,9 +103,9 @@ MonoBehaviour:
   groundBox:
     serializedVersion: 2
     x: 0
-    y: -0.5
+    y: -0.45
     width: 1
-    height: 0.1
+    height: 0.3
   hitBoxScale: {x: 0.1, y: 1.49, z: 1}
   hitBoxOffset: {x: 0.5, y: 0.435, z: 0}
   fallLimit: -7

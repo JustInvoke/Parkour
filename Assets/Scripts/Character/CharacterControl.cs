@@ -114,12 +114,15 @@ public class CharacterControl : MonoBehaviour
     }
 
     private void OnDrawGizmosSelected() {
+        // Visualize ground hitbox
         Gizmos.color = Color.cyan;
         Gizmos.DrawWireCube(new Vector2(transform.position.x, transform.position.y) + groundBox.center, groundBox.size);
+        // Visualize wall hitbox
         Gizmos.color = Color.magenta;
         Gizmos.DrawWireCube(transform.position + hitBoxOffset, hitBoxScale);
     }
 
+    // Corouting for playing step sounds
     private IEnumerator PlayStepSound(AudioClip audioClip) {
         if (grounded && standCol.enabled) {
             audioSource.PlayOneShot(audioClip);
@@ -133,6 +136,15 @@ public class CharacterControl : MonoBehaviour
     }
 
     private void Die() {
-        dieEvent.Invoke();
+        dieEvent.Invoke(); // Invoke any functions that should be called upon death
+    }
+
+    private void OnCollisionStay2D(Collision2D collision) {
+        foreach (ContactPoint2D contact in collision.contacts) {
+            // Kill the character if he hits a spike
+            if (contact.collider.CompareTag("Kill")) {
+                Die();
+            }
+        }
     }
 }

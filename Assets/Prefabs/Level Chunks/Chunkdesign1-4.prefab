@@ -488,24 +488,10 @@ CompositeCollider2D:
         Y: 5171515
       - X: 69999893
         Y: -171807
-  - m_Collider: {fileID: 101318729391952022}
-    m_ColliderPaths:
-    - - X: 29982915
-        Y: 4895388
-      - X: 29982915
-        Y: 10104612
-      - X: 20016792
-        Y: 10104319
-      - X: 20017085
-        Y: 4895388
   m_CompositePaths:
     m_Paths:
     - - {x: 7.999982, y: -0.0171807}
       - {x: 7.999982, y: 0.5171808}
-      - {x: 2.9982917, y: 0.5172101}
-      - {x: 2.9982622, y: 1.0104612}
-      - {x: 2.0016792, y: 1.0104026}
-      - {x: 2.0016775, y: 0.5171516}
       - {x: -0.000039900002, y: 0.5171222}
       - {x: 0.0000187, y: -0.0171807}
   m_VertexDistance: 0.0005
@@ -754,7 +740,7 @@ GameObject:
   - component: {fileID: 101318729391952022}
   m_Layer: 7
   m_Name: spikes (2)
-  m_TagString: Untagged
+  m_TagString: Kill
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -836,8 +822,8 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_UsedByComposite: 1
-  m_Offset: {x: 0, y: 0}
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.01860869}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -848,7 +834,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.15, y: 0.1}
+  m_Size: {x: 0.09767802, y: 0.06278263}
   m_EdgeRadius: 0
 --- !u!1 &6457645502719281709
 GameObject:

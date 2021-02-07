@@ -80,8 +80,8 @@ Rigidbody2D:
   m_GravityScale: 4
   m_Material: {fileID: 6200000, guid: ada386364e33be348a9ccb5035a0ab03, type: 2}
   m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_SleepingMode: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!114 &-5318734337160572125
 MonoBehaviour:
@@ -102,10 +102,10 @@ MonoBehaviour:
     m_Bits: 128
   groundBox:
     serializedVersion: 2
-    x: 0
-    y: -0.45
+    x: -0.5
+    y: -0.6
     width: 1
-    height: 0.3
+    height: 0.2
   hitBoxScale: {x: 0.1, y: 1.49, z: 1}
   hitBoxOffset: {x: 0.5, y: 0.435, z: 0}
   fallLimit: -7

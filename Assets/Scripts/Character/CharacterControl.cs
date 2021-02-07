@@ -106,7 +106,7 @@ public class CharacterControl : MonoBehaviour
 
     private void OnDrawGizmosSelected() {
         Gizmos.color = Color.cyan;
-        Gizmos.DrawWireCube(transform.position + new Vector3(groundBox.x, groundBox.y), new Vector3(groundBox.width, groundBox.height, 0.0f));
+        Gizmos.DrawWireCube(new Vector2(transform.position.x, transform.position.y) + groundBox.center, groundBox.size);
         Gizmos.color = Color.magenta;
         Gizmos.DrawWireCube(transform.position + hitBoxOffset, hitBoxScale);
     }

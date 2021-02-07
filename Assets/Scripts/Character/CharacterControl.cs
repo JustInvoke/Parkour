@@ -14,8 +14,11 @@ public class CharacterControl : MonoBehaviour
     public Rect groundBox = new Rect(Vector2.zero, Vector2.one); // Dimensions for the ground overlap box
     private float airTime = 0.0f; // Time spent in the air since last grounded
     public float airJumpTime = 0.1f; // Time after leaving a platform that the character can still jump
+    // Hitboxes for detecting wall collision
     public Vector3 hitBoxScale;
     public Vector3 hitBoxOffset;
+    public Vector3 hitBoxScaleCrouch;
+    public Vector3 hitBoxOffsetCrouch;
     public float fallLimit = -7; // If the character's y-position is less than this, then he dies
 
     private SpriteRenderer rend;
@@ -29,12 +32,12 @@ public class CharacterControl : MonoBehaviour
     public float speedupIncrement = 1.0f;
     private float milestoneDistance = 1000.0f; // How long until next speedup increase
     private Vector3 lastMilestonePos = new Vector3(0, 0, 0); // Keeps track of last milestone position
-    
+
     public float jumpForce = 1.0f;
     private float timeSinceLastJump = 0.0f;
     public float jumpTimeLimit = 0.15f; // Minimum time allowed between repeated jumps
     public float fastFallForce = 1.0f; // Force applied when crouching while in air
-    
+
     public KeyCode rightInput = KeyCode.RightArrow; // Max speed movement
     public KeyCode leftInput = KeyCode.LeftArrow; // Min speed movement
     public KeyCode jumpInput = KeyCode.UpArrow;
@@ -76,12 +79,6 @@ public class CharacterControl : MonoBehaviour
     }
 
     private void FixedUpdate() {
-        // Reload the level if the character touches a wall
-        Collider2D wallCollider = Physics2D.OverlapBox(transform.position + hitBoxOffset, hitBoxScale, 0.0f, groundMask);
-        if (wallCollider != null || transform.position.y < fallLimit) {
-            Die();
-        }
-
         // Check if standing on ground
         grounded = Physics2D.OverlapBox(new Vector2(transform.position.x, transform.position.y) + groundBox.center, groundBox.size, 0.0f, groundMask) != null;
         airTime = grounded ? 0.0f : airTime + Time.fixedDeltaTime;
@@ -111,6 +108,19 @@ public class CharacterControl : MonoBehaviour
         }
         crouchCol.enabled = crouching;
         rend.sprite = crouching ? crouchSprite : standSprite;
+
+        // Reload the level if the character touches a wall
+        Collider2D wallCollider = null;
+        if (crouching) {
+            wallCollider = Physics2D.OverlapBox(transform.position + hitBoxOffsetCrouch, hitBoxScaleCrouch, 0.0f, groundMask);
+        }
+        else {
+            wallCollider = Physics2D.OverlapBox(transform.position + hitBoxOffset, hitBoxScale, 0.0f, groundMask);
+        }
+
+        if (wallCollider != null || transform.position.y < fallLimit) {
+            Die();
+        }
     }
 
     private void OnDrawGizmosSelected() {
@@ -120,6 +130,8 @@ public class CharacterControl : MonoBehaviour
         // Visualize wall hitbox
         Gizmos.color = Color.magenta;
         Gizmos.DrawWireCube(transform.position + hitBoxOffset, hitBoxScale);
+        Gizmos.color = new Color(1.0f, 0.5f, 0.5f);
+        Gizmos.DrawWireCube(transform.position + hitBoxOffsetCrouch, hitBoxScaleCrouch);
     }
 
     // Corouting for playing step sounds

@@ -111,12 +111,12 @@ MonoBehaviour:
   fallLimit: -7
   standSprite: {fileID: 21300000, guid: 097737625e3c0e8419ccfffab34674a8, type: 3}
   crouchSprite: {fileID: 21300000, guid: 7a83642838ac2374892f9e3a9dfee97e, type: 3}
-  minSpeed: 5
-  maxSpeed: 18
+  minSpeed: 3
+  maxSpeed: 7
   accel: 5
   speedup: 0
-  maxSpeedup: 10
-  speedupIncrement: 2
+  maxSpeedup: 5
+  speedupIncrement: 1
   jumpForce: 14
   fastFallForce: 10
   rightInput: 275

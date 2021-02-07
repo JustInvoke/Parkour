@@ -202,11 +202,15 @@ MonoBehaviour:
   levelChunks:
   - {fileID: 3179805742469146160, guid: 9cb64609d071d534e97f5692b6eb38e9, type: 3}
   - {fileID: 3179805742469146160, guid: 977eac2c745e4cb4bbda418373c3a2f5, type: 3}
+  - {fileID: 3179805742469146160, guid: 759b1e2c8ffd4a447bc0c9e62dd25f83, type: 3}
+  hardChunks:
   - {fileID: 3179805742469146160, guid: 6358b70717f3a0641ad14534c1795b59, type: 3}
   - {fileID: 3179805742469146160, guid: 77f693b2fb8c25244a33b274a1cdc06d, type: 3}
-  - {fileID: 3179805742469146160, guid: 759b1e2c8ffd4a447bc0c9e62dd25f83, type: 3}
   - {fileID: 3179805742469146160, guid: ad61708f44afcf848adc7359b06ed687, type: 3}
   - {fileID: 3179805742469146160, guid: c4e1bfcf0bdca77428b49048331c3a59, type: 3}
+  hardChunkFreq: 10
+  minHardChunkFreq: 4
+  chunkMilestone: 100
   mainCam: {fileID: 637190870}
 --- !u!4 &325652257
 Transform:

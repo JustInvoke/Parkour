@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 802525952496533948}
   - component: {fileID: 7660430416299906289}
   - component: {fileID: 2230327947450535793}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: platform-long (66)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -120,7 +120,7 @@ GameObject:
   - component: {fileID: 1330258230351975973}
   - component: {fileID: 5696265477098761704}
   - component: {fileID: 7584942774094457562}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: platform-long (68)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -410,7 +410,7 @@ GameObject:
   - component: {fileID: 8151320680511721971}
   - component: {fileID: 484506706711344294}
   - component: {fileID: 6350877023872856561}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: platform-long (73)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -519,7 +519,7 @@ GameObject:
   - component: {fileID: 3070286027398616289}
   - component: {fileID: 2977712635403516388}
   - component: {fileID: 3552744967840933338}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: platform-long (69)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -628,7 +628,7 @@ GameObject:
   - component: {fileID: 901552229484871451}
   - component: {fileID: 545944959942114428}
   - component: {fileID: 3951225169414474569}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: platform-long (67)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -737,7 +737,7 @@ GameObject:
   - component: {fileID: 5324347809020295167}
   - component: {fileID: 9154376682190844196}
   - component: {fileID: 2009420546581432836}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: platform-long (70)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -846,7 +846,7 @@ GameObject:
   - component: {fileID: 7899331137019018799}
   - component: {fileID: 4337066059312835017}
   - component: {fileID: 5512433853327515996}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: platform-long (72)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -955,7 +955,7 @@ GameObject:
   - component: {fileID: 8705100768621012651}
   - component: {fileID: 103793283317193689}
   - component: {fileID: 2430326351681852512}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: platform-long (71)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

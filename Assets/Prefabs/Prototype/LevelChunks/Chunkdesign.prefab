@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6829302362345136586}
   - component: {fileID: 6302481610341667009}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: crate (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,7 +92,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5816666877016282134}
   - component: {fileID: 8795467120741486559}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: tileset-sliced_1 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -174,7 +174,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3151789153182269980}
   - component: {fileID: 5801966314810144349}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: tileset-sliced_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -256,7 +256,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1361252539664818207}
   - component: {fileID: 2910613004245058714}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: tileset-sliced_2 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -338,7 +338,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5274496173327604077}
   - component: {fileID: 6220231220380526674}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: crate (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -420,7 +420,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8726457523761697058}
   - component: {fileID: 3322814054401552612}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: tileset-sliced_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -685,7 +685,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1508327378026122245}
   - component: {fileID: 1326977837504825441}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: tileset-sliced_1 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -767,7 +767,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2675272128271105690}
   - component: {fileID: 2918533423012546085}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: crate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -849,7 +849,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4769447928906976460}
   - component: {fileID: 6430067218761891475}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: tileset-sliced_0 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -931,7 +931,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3693993050649972955}
   - component: {fileID: 4014934165267644426}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: tileset-sliced_2 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1013,7 +1013,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8251506384467303589}
   - component: {fileID: 7058059476006815921}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: tileset-sliced_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}

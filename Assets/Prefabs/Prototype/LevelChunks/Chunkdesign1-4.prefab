@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6150598528689968601}
   - component: {fileID: 5028458018375642337}
   - component: {fileID: 2428887403663700700}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: platform-long (71)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -120,7 +120,7 @@ GameObject:
   - component: {fileID: 2079747265260507584}
   - component: {fileID: 466169564568589561}
   - component: {fileID: 8373557002363631690}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: platform-long (72)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -229,7 +229,7 @@ GameObject:
   - component: {fileID: 6276566772652910701}
   - component: {fileID: 9147751379362032397}
   - component: {fileID: 3491970751778374544}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: platform-long (69)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -534,7 +534,7 @@ GameObject:
   - component: {fileID: 1846382053464241959}
   - component: {fileID: 851090938414425111}
   - component: {fileID: 18596679369104914}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: platform-long (73)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -643,7 +643,7 @@ GameObject:
   - component: {fileID: 5147446786438640658}
   - component: {fileID: 6772980433762419804}
   - component: {fileID: 6405407824841083919}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: platform-long (67)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -752,7 +752,7 @@ GameObject:
   - component: {fileID: 7675080294696833119}
   - component: {fileID: 3449015131678911778}
   - component: {fileID: 101318729391952022}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: spikes (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -861,7 +861,7 @@ GameObject:
   - component: {fileID: 8150003694537909148}
   - component: {fileID: 6046551415340087307}
   - component: {fileID: 961802517865281235}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: platform-long (66)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -970,7 +970,7 @@ GameObject:
   - component: {fileID: 829731294954430335}
   - component: {fileID: 5465066367777103091}
   - component: {fileID: 8982159231613334098}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: platform-long (68)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1079,7 +1079,7 @@ GameObject:
   - component: {fileID: 5355177202112019793}
   - component: {fileID: 7981803907449528500}
   - component: {fileID: 396315945772536287}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: platform-long (70)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

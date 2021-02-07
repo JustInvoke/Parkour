@@ -12,6 +12,8 @@ public class CharacterControl : MonoBehaviour
     public LayerMask groundMask; // Layer mask representing ground objects
     private bool grounded = false; // Whether the character is standing on the ground
     public Rect groundBox = new Rect(Vector2.zero, Vector2.one); // Dimensions for the ground overlap box
+    private float airTime = 0.0f; // Time spent in the air since last grounded
+    public float airJumpTime = 0.1f; // Time after leaving a platform that the character can still jump
     public Vector3 hitBoxScale;
     public Vector3 hitBoxOffset;
     public float fallLimit = -7; // If the character's y-position is less than this, then he dies
@@ -27,8 +29,12 @@ public class CharacterControl : MonoBehaviour
     public float speedupIncrement = 1.0f;
     private float milestoneDistance = 1000.0f; // How long until next speedup increase
     private Vector3 lastMilestonePos = new Vector3(0, 0, 0); // Keeps track of last milestone position
+    
     public float jumpForce = 1.0f;
+    private float timeSinceLastJump = 0.0f;
+    public float jumpTimeLimit = 0.15f; // Minimum time allowed between repeated jumps
     public float fastFallForce = 1.0f; // Force applied when crouching while in air
+    
     public KeyCode rightInput = KeyCode.RightArrow; // Max speed movement
     public KeyCode leftInput = KeyCode.LeftArrow; // Min speed movement
     public KeyCode jumpInput = KeyCode.UpArrow;
@@ -51,7 +57,8 @@ public class CharacterControl : MonoBehaviour
 
     private void Update() {
         // Jump action
-        if (Input.GetKeyDown(jumpInput) && grounded) {
+        if (Input.GetKeyDown(jumpInput) && timeSinceLastJump > jumpTimeLimit && (grounded || airTime < airJumpTime)) {
+            timeSinceLastJump = 0.0f;
             // Reset vertical speed so it doesn't reduce jump height
             if (rb.velocity.y < 0) {
                 rb.velocity = new Vector2(rb.velocity.x, 0.0f);
@@ -77,6 +84,8 @@ public class CharacterControl : MonoBehaviour
 
         // Check if standing on ground
         grounded = Physics2D.OverlapBox(new Vector2(transform.position.x, transform.position.y) + groundBox.center, groundBox.size, 0.0f, groundMask) != null;
+        airTime = grounded ? 0.0f : airTime + Time.fixedDeltaTime;
+        timeSinceLastJump += Time.fixedDeltaTime;
 
         // Convert key inputs to single float ranging from 0 to 1
         float moveInput = (Input.GetKey(rightInput) ? 1.0f : 0.5f) + (Input.GetKey(leftInput) ? -0.5f : 0.0f);

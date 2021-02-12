@@ -159,4 +159,15 @@ public class CharacterControl : MonoBehaviour
             }
         }
     }
+
+    public void JumpPowerupInitialize() {
+        float original = jumpForce;
+        jumpForce = 21f;
+        StartCoroutine(JumpPowerupComplete(original, 10f));
+    }
+
+    private IEnumerator JumpPowerupComplete(float original, float powerupTime) {
+        yield return new WaitForSeconds(powerupTime);
+        jumpForce = original;
+    }
 }

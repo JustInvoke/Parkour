@@ -36,7 +36,8 @@ public class CharacterControl : MonoBehaviour
     public float jumpForce = 1.0f;
     private float timeSinceLastJump = 0.0f;
     public float jumpTimeLimit = 0.15f; // Minimum time allowed between repeated jumps
-    public float fastFallForce = 1.0f; // Force applied when crouching while in air
+    public float fastFallSpeed = 5.0f; // Downward speed applied when crouching while in air
+    private bool fastFalling = false;
 
     public KeyCode rightInput = KeyCode.RightArrow; // Max speed movement
     public KeyCode leftInput = KeyCode.LeftArrow; // Min speed movement
@@ -72,9 +73,15 @@ public class CharacterControl : MonoBehaviour
             audioSource.PlayOneShot(jumpSound);
         }
 
-        // Add fast fall force
-        if (Input.GetKeyDown(crouchInput) && !grounded) {
-            rb.AddForce(Vector2.down * fastFallForce, ForceMode2D.Impulse);
+        // Add fast fall speed
+        if (Input.GetKeyDown(crouchInput) && !grounded && !fastFalling) {
+            fastFalling = true;
+            if (rb.velocity.y > -fastFallSpeed) {
+                rb.velocity = new Vector2(rb.velocity.x, -fastFallSpeed);
+            }
+        }
+        else if (grounded) {
+            fastFalling = false;
         }
 
         // Set animation parameters

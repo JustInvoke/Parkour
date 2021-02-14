@@ -22,22 +22,36 @@ public class CharacterPrototype : MonoBehaviour
     public KeyCode leftInput = KeyCode.LeftArrow; // Min speed movement
     public KeyCode jumpInput = KeyCode.UpArrow;
     public KeyCode crouchInput = KeyCode.DownArrow;
+    public Animator animator;
 
     private void Start() {
         // Cache component references
         rb = GetComponent<Rigidbody2D>();
         rend = GetComponent<SpriteRenderer>();
+        animator = GetComponent<Animator>();
     }
 
     private void Update() {
         // Jump action
         if (Input.GetKeyDown(jumpInput)) {
+            animator.SetBool("isCrouching", false);
+            animator.SetBool("isJumping", true);
+
             // Reset vertical speed so it doesn't reduce jump height
             if (rb.velocity.y < 0) {
                 rb.velocity = new Vector2(rb.velocity.x, 0.0f);
             }
             // Add jump force
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+        }
+        // Crouch action
+        else if (Input.GetKeyDown(crouchInput)) {
+            animator.SetBool("isCrouching", true);
+            animator.SetBool("isJumping", false);
+        }
+        else {
+            animator.SetBool("isCrouching", false);
+            animator.SetBool("isJumping", false);
         }
     }
 
@@ -61,7 +75,7 @@ public class CharacterPrototype : MonoBehaviour
         bool crouching = Input.GetKey(crouchInput);
         standCol.enabled = !crouching;
         crouchCol.enabled = crouching;
-        rend.sprite = crouching ? crouchSprite : standSprite;
+        //rend.sprite = crouching ? crouchSprite : standSprite;
     }
 
     // Visualize the overlap box

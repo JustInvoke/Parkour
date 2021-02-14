@@ -12,6 +12,7 @@ public class CharacterControl : MonoBehaviour
     public LayerMask groundMask; // Layer mask representing ground objects
     private bool grounded = false; // Whether the character is standing on the ground
     public Rect groundBox = new Rect(Vector2.zero, Vector2.one); // Dimensions for the ground overlap box
+    private bool crouching = false; // Whether the character is crouching
     private float airTime = 0.0f; // Time spent in the air since last grounded
     public float airJumpTime = 0.1f; // Time after leaving a platform that the character can still jump
     // Hitboxes for detecting wall collision
@@ -21,9 +22,8 @@ public class CharacterControl : MonoBehaviour
     public Vector3 hitBoxOffsetCrouch;
     public float fallLimit = -7; // If the character's y-position is less than this, then he dies
 
-    private SpriteRenderer rend;
-    public Sprite standSprite; // Sprite used while standing
-    public Sprite crouchSprite; // Sprite used while crouching
+    private Animator animator;
+
     public float minSpeed = 1.0f; // Minimum allowed movement speed
     public float maxSpeed = 2.0f; // Maximum allowed movement speed
     public float accel = 1.0f; // acceleration
@@ -54,7 +54,7 @@ public class CharacterControl : MonoBehaviour
     private void Start() {
         // Cache component references
         rb = GetComponent<Rigidbody2D>();
-        rend = GetComponentInChildren<SpriteRenderer>();
+        animator = GetComponentInChildren<Animator>();
         StartCoroutine(PlayStepSound(stepRSound));
     }
 
@@ -76,6 +76,10 @@ public class CharacterControl : MonoBehaviour
         if (Input.GetKeyDown(crouchInput) && !grounded) {
             rb.AddForce(Vector2.down * fastFallForce, ForceMode2D.Impulse);
         }
+
+        // Set animation parameters
+        animator.SetBool("isJumping", !grounded && !crouching);
+        animator.SetBool("isCrouching", crouching);
     }
 
     private void FixedUpdate() {
@@ -101,13 +105,12 @@ public class CharacterControl : MonoBehaviour
         rb.AddForce(Vector2.right * (targetSpeed - rb.velocity.x) * accel, ForceMode2D.Force);
 
         // Crouch logic with colliders and sprites
-        bool crouching = Input.GetKey(crouchInput);
+        crouching = Input.GetKey(crouchInput);
         standCol.enabled = !crouching;
         if (!standCol.enabled && !crouchCol.enabled) {
             audioSource.PlayOneShot(slideSound);
         }
         crouchCol.enabled = crouching;
-        rend.sprite = crouching ? crouchSprite : standSprite;
 
         // Reload the level if the character touches a wall
         Collider2D wallCollider = null;

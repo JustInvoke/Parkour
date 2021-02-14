@@ -231,7 +231,7 @@ GameObject:
   - component: {fileID: 3179805742469146161}
   - component: {fileID: 5697632017303408587}
   m_Layer: 7
-  m_Name: Chunkdesign1-3
+  m_Name: Chunkdesign1-3 Box Hole
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -309,13 +309,13 @@ CompositeCollider2D:
         Y: -171805
   - m_Collider: {fileID: 483662017934289694}
     m_ColliderPaths:
-    - - X: 40000107
+    - - X: 60000107
         Y: -171805
-      - X: 40000107
+      - X: 60000107
         Y: 5171805
-      - X: 29999602
+      - X: 49999600
         Y: 5171512
-      - X: 29999895
+      - X: 49999893
         Y: -171805
   - m_Collider: {fileID: 1253916972909375466}
     m_ColliderPaths:
@@ -370,8 +370,8 @@ CompositeCollider2D:
   m_CompositePaths:
     m_Paths:
     - - {x: -0.0000106, y: -0.0171514}
-      - {x: 4.000011, y: -0.0171512}
-      - {x: 3.9999816, y: 0.5171805}
+      - {x: 3.0000105, y: -0.0171512}
+      - {x: 2.9999812, y: 0.5171805}
       - {x: 2.005618, y: 0.5171808}
       - {x: 2.0055885, y: 1.5931262}
       - {x: 0.9943528, y: 1.5930676}
@@ -379,8 +379,8 @@ CompositeCollider2D:
       - {x: -0.000039900002, y: 0.5171222}
     - - {x: 7.999982, y: -0.0171807}
       - {x: 7.999982, y: 0.5171808}
-      - {x: 5.99996, y: 0.5171222}
-      - {x: 6.0000186, y: -0.0171807}
+      - {x: 4.99996, y: 0.5171219}
+      - {x: 5.0000186, y: -0.0171805}
   m_VertexDistance: 0.0005
   m_OffsetDistance: 0.00005
 --- !u!114 &5697632017303408587
@@ -531,7 +531,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5526507744728591694}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.5, y: 0.25, z: 0}
+  m_LocalPosition: {x: 5.5, y: 0.25, z: 0}
   m_LocalScale: {x: 3.1252494, y: 3.3397563, z: 1}
   m_Children: []
   m_Father: {fileID: 3179805742469146175}

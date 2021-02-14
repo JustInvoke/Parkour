@@ -231,7 +231,7 @@ GameObject:
   - component: {fileID: 3179805742469146161}
   - component: {fileID: 5697632017303408587}
   m_Layer: 7
-  m_Name: Chunkdesign1-0
+  m_Name: Chunkdesign1-0 Flat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

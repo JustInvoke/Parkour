@@ -885,7 +885,7 @@ GameObject:
   - component: {fileID: 3179805742469146161}
   - component: {fileID: 5697632017303408587}
   m_Layer: 7
-  m_Name: Chunkdesign3-1 choices2
+  m_Name: Chunkdesign3-2 choices2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1270,7 +1270,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70884649315761e4bb6514d2aab1bef6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  width: 8
+  width: 19
 --- !u!1 &3400107530462077182
 GameObject:
   m_ObjectHideFlags: 0

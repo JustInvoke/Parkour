@@ -5,5 +5,6 @@ using UnityEngine;
 public static class StringBank {
     #region Level
     public static string LevelSceneName { get; } = "Prototype";
+    public static string MenuSceneName { get; } = "TitleScreen";
     #endregion
 }

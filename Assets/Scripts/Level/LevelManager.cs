@@ -5,9 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
-    // Singleton Reference
-    public static LevelManager Instance { get { return _instance; } }
-    private static LevelManager _instance;
     public GameObject firstChunk; // First chunk to spawn, useful so that the level starts smoothly
     public int firstChunkCount = 1; // Number of times to repeat the starting chunk
     public GameObject[] levelChunks; // Array of possible chunks to spawn
@@ -19,15 +16,8 @@ public class LevelManager : MonoBehaviour
     private Queue<LevelChunk> spawnedChunks = new Queue<LevelChunk>(); // Queue of currently spawned chunks
     private LevelChunk lastSpawnedChunk; // Reference to the most recently spawned chunk
     public Camera mainCam; // Reference to the main camera in the scene
-    public string mainMenuScene; // Main menu scene to load upon quitting
 
     private void Awake() {
-        //Setup of Monobehaviour Singleton
-        if (_instance != this && _instance != null) {
-            Destroy(_instance.gameObject);
-        }
-        _instance = this;
-
         // Spawn starting chunk(s)
         if (firstChunkCount > 0) {
             for (int i = 0; i < firstChunkCount; i++) {
@@ -109,15 +99,7 @@ public class LevelManager : MonoBehaviour
 
     // Return to the main menu
     public static void LoadMainMenu() {
-        if (Instance == null) { return; }
-        SceneManager.LoadScene(Instance.mainMenuScene);
+        SceneManager.LoadScene(StringBank.MenuSceneName);
         GlobalGameManager.Unpause();
-    }
-
-    // Clean up singleton reference
-    private void OnDestroy() {
-        if (_instance == this) {
-            _instance = null;
-        }
     }
 }

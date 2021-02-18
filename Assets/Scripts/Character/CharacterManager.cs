@@ -19,7 +19,11 @@ public class CharacterManager : MonoBehaviour
     public void SpawnCharacter() {
         _character = Instantiate(characterPrefab, spawnPoint, Quaternion.identity).gameObject;
         // Subscribe level reload to charcter die event
-        _character.GetComponent<CharacterControl>().dieEvent.AddListener(LevelManager.ReloadLevel);
+        _character.GetComponent<CharacterControl>().dieEvent.AddListener(GlobalGameManager.Pause);
+        _character.GetComponent<CharacterControl>().dieEvent.AddListener(() => {
+            ScoreMenu scoreMenu = FindObjectOfType<ScoreMenu>();
+            if (scoreMenu != null) { scoreMenu.ShowMenu(); }
+            });
     }
 
     // Visualize the spawn point and character overlapBox

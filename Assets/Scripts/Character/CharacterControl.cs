@@ -158,6 +158,7 @@ public class CharacterControl : MonoBehaviour
     }
 
     private void Die() {
+        gameObject.SetActive(false);
         dieEvent.Invoke(); // Invoke any functions that should be called upon death
     }
 

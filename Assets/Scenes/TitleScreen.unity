@@ -571,7 +571,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
+  m_FirstSelected: {fileID: 1166771226}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
 --- !u!4 &402422962
@@ -617,6 +617,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34dfa5f226a12494cb2aa9b42b32920e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  paused: 0
 --- !u!4 &481314677
 Transform:
   m_ObjectHideFlags: 0
@@ -743,7 +744,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44451a840f9b6fc45ac93e443f98a215, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelSceneName: Prototype
 --- !u!4 &707495741
 Transform:
   m_ObjectHideFlags: 0

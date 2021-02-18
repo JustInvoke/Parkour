@@ -17,4 +17,24 @@ public class GlobalGameManager : MonoBehaviour
         }
         _instance = this;
     }
+
+    private bool paused = false;
+
+    // Pause the game
+    public static void Pause() {
+        if (Instance == null) { return; }
+        if (!Instance.paused) {
+            Instance.paused = true;
+            Time.timeScale = 0.0f;
+        }
+    }
+
+    // Unpause the game
+    public static void Unpause() {
+        if (Instance == null) { return; }
+        if (!Instance.paused) {
+            Instance.paused = true;
+            Time.timeScale = 1.0f;
+        }
+    }
 }

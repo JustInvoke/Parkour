@@ -18,8 +18,9 @@ public class CharacterManager : MonoBehaviour
     // Instantiate the character prefab at the spawn point
     public void SpawnCharacter() {
         _character = Instantiate(characterPrefab, spawnPoint, Quaternion.identity).gameObject;
-        // Subscribe level reload to charcter die event
+        // Subscribe level reload to character die event
         _character.GetComponent<CharacterControl>().dieEvent.AddListener(GlobalGameManager.Pause);
+        // Show game over menu when the character dies
         _character.GetComponent<CharacterControl>().dieEvent.AddListener(() => {
             ScoreMenu scoreMenu = FindObjectOfType<ScoreMenu>();
             if (scoreMenu != null) { scoreMenu.ShowMenu(); }

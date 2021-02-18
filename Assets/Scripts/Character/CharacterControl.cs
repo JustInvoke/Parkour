@@ -87,6 +87,10 @@ public class CharacterControl : MonoBehaviour
         // Set animation parameters
         animator.SetBool("isJumping", !grounded && !crouching);
         animator.SetBool("isCrouching", crouching);
+
+
+        // Set score based on x-position
+        ScoreMenu.score = Mathf.Max(0, Mathf.CeilToInt(transform.position.x));
     }
 
     private void FixedUpdate() {

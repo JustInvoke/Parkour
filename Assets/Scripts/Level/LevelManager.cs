@@ -38,6 +38,8 @@ public class LevelManager : MonoBehaviour
             // Spawn any chunk if no first chunks to spawn
             SpawnChunk();
         }
+
+        GlobalGameManager.Unpause();
     }
 
     private void Update() {

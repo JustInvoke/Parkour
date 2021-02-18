@@ -30,6 +30,7 @@ public class ScoreMenu : MonoBehaviour
         if (score > highScore) {
             highScore = score;
             PlayerPrefs.SetInt("Score", highScore);
+            PlayerPrefs.Save();
         }
 
         // Display score text

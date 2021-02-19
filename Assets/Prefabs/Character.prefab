@@ -112,11 +112,11 @@ MonoBehaviour:
   hitBoxScaleCrouch: {x: 0.1, y: 0.64, z: 0}
   hitBoxOffsetCrouch: {x: 0.5, y: 0.01, z: 0}
   fallLimit: -7
-  minSpeed: 3
-  maxSpeed: 7
-  accel: 5
+  minSpeed: 2
+  maxSpeed: 6
+  accel: 7
   speedup: 0
-  maxSpeedup: 5
+  maxSpeedup: 3
   speedupIncrement: 1
   jumpForce: 14
   jumpTimeLimit: 0.15
@@ -130,7 +130,6 @@ MonoBehaviour:
   slideSound: {fileID: 8300000, guid: b3289acd4d2c7bf48aa584ebd04c7c6d, type: 3}
   stepLSound: {fileID: 8300000, guid: 4bc3fb607eb561a4b8593c0b2a464103, type: 3}
   stepRSound: {fileID: 8300000, guid: 5c8763516e174ef4cb639d9d5a8d837f, type: 3}
-  deathSound: {fileID: 8300000, guid: 351c1701996fd1047a525e62e8ca7f3c, type: 3}
   dieEvent:
     m_PersistentCalls:
       m_Calls: []

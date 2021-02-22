@@ -382,7 +382,7 @@ MonoBehaviour:
   - {fileID: 3179805742469146160, guid: a1cc3acd2fd5a524ea9c6a525d003f94, type: 3}
   hardChunkFreq: 10
   minHardChunkFreq: 4
-  chunkMilestone: 100
+  chunkMilestone: 50
   mainCam: {fileID: 637190870}
 --- !u!4 &325652257
 Transform:

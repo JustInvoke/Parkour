@@ -130,6 +130,7 @@ MonoBehaviour:
   slideSound: {fileID: 8300000, guid: b3289acd4d2c7bf48aa584ebd04c7c6d, type: 3}
   stepLSound: {fileID: 8300000, guid: 4bc3fb607eb561a4b8593c0b2a464103, type: 3}
   stepRSound: {fileID: 8300000, guid: 5c8763516e174ef4cb639d9d5a8d837f, type: 3}
+  backgroundPrefab: {fileID: 8323394068018655505, guid: c281e07c2cad90846bb4ef110107480a, type: 3}
   dieEvent:
     m_PersistentCalls:
       m_Calls: []

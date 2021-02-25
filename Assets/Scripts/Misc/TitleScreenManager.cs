@@ -6,6 +6,16 @@ using UnityEngine.SceneManagement;
 
 public class TitleScreenManager : MonoBehaviour
 {
+
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip soundBeep;
+
+    private void Update() {
+        if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.DownArrow)) {
+            audioSource.PlayOneShot(soundBeep);
+        }
+    }
+
     public void StartOnClick() {
         SceneManager.LoadScene(StringBank.LevelSceneName);
     }
@@ -17,4 +27,6 @@ public class TitleScreenManager : MonoBehaviour
     public void QuitOnClick() {
         Application.Quit();
     }
+
+
 }

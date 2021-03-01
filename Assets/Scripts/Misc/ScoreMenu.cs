@@ -3,10 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Audio;
-
 public class ScoreMenu : MonoBehaviour
 {
-    public GameObject menu; // The game over menu objecto
+    public GameObject menu; // The game over menu object
     public GameObject hud; // Object containing HUD elements
     public static int score = 0; // Current score value
     public Text scoreHudText; // Text displaying the score in the HUD
@@ -48,4 +47,5 @@ public class ScoreMenu : MonoBehaviour
         scoreMenuText.text = "Score: " + score.ToString();
         highScoreMenuText.text = "High Score: " + highScore.ToString();
     }
+    
 }

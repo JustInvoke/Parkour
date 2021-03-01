@@ -12,7 +12,7 @@ public class LevelManager : MonoBehaviour
     private int totalChunksSpawned = 0; // Total number of chunks ever spawned
     public int hardChunkFreq = 10; // How many chunk spawns until next hard chunk spawn?
     public int minHardChunkFreq = 4; // Minimum amount of chunks that need to spawn until next hard chunk
-    public int chunkMilestone = 50; // How many chunks need to spawn until next hardChunkFreq Decrement
+    public int chunkMilestone = 100; // How many chunks need to spawn until next hardChunkFreq Decrement
     private Queue<LevelChunk> spawnedChunks = new Queue<LevelChunk>(); // Queue of currently spawned chunks
     private LevelChunk lastSpawnedChunk; // Reference to the most recently spawned chunk
     public Camera mainCam; // Reference to the main camera in the scene

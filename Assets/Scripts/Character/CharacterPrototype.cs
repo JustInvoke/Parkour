@@ -23,7 +23,8 @@ public class CharacterPrototype : MonoBehaviour
     public KeyCode jumpInput = KeyCode.UpArrow;
     public KeyCode crouchInput = KeyCode.DownArrow;
     public Animator animator;
-
+    public static int jumpCount = 0;
+    public static int crouchCount = 0;
     private void Start() {
         // Cache component references
         rb = GetComponent<Rigidbody2D>();
@@ -36,7 +37,7 @@ public class CharacterPrototype : MonoBehaviour
         if (Input.GetKeyDown(jumpInput)) {
             animator.SetBool("isCrouching", false);
             animator.SetBool("isJumping", true);
-
+            jumpCount++;
             // Reset vertical speed so it doesn't reduce jump height
             if (rb.velocity.y < 0) {
                 rb.velocity = new Vector2(rb.velocity.x, 0.0f);
@@ -48,6 +49,7 @@ public class CharacterPrototype : MonoBehaviour
         else if (Input.GetKeyDown(crouchInput)) {
             animator.SetBool("isCrouching", true);
             animator.SetBool("isJumping", false);
+            crouchCount++;
         }
         else {
             animator.SetBool("isCrouching", false);

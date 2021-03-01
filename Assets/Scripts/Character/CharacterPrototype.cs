@@ -25,6 +25,7 @@ public class CharacterPrototype : MonoBehaviour
     public Animator animator;
     public static int jumpCount = 0;
     public static int crouchCount = 0;
+
     private void Start() {
         // Cache component references
         rb = GetComponent<Rigidbody2D>();

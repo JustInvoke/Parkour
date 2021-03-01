@@ -30,7 +30,7 @@ public class CharacterControl : MonoBehaviour
     public float speedup = 0.0f; // Current speedup
     public float maxSpeedup = 6.0f; // Maximum speedup
     public float speedupIncrement = 1.0f;
-    private float milestoneDistance = 1000.0f; // How long until next speedup increase
+    private float milestoneDistance = 250.0f; // How long until next speedup increase
     private Vector3 lastMilestonePos = new Vector3(0, 0, 0); // Keeps track of last milestone position
 
     public float jumpForce = 1.0f;
@@ -50,16 +50,32 @@ public class CharacterControl : MonoBehaviour
     [SerializeField] private AudioClip stepLSound;
     [SerializeField] private AudioClip stepRSound;
 
+    [SerializeField] private GameObject backgroundPrefab;
+    private Transform background;
+    private float backgroundOffset;
+
     public UnityEvent dieEvent; // Public event invoked when dying
+
+    // Achievement trackers
+    public static int jumpCount = 0;
+    public static int crouchCount = 0;
 
     private void Start() {
         // Cache component references
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponentInChildren<Animator>();
         StartCoroutine(PlayStepSound(stepRSound));
+
+        //Create the background
+        GameObject g = Instantiate(backgroundPrefab);
+        background = g.transform;
+        background.position = Vector3.zero;
+        backgroundOffset = transform.position.x - background.position.x;
     }
 
     private void Update() {
+        //Snap Background to character pos
+        background.position = new Vector3(transform.position.x - backgroundOffset, background.position.y, background.position.z);
         // Jump action
         if (Input.GetKeyDown(jumpInput) && timeSinceLastJump > jumpTimeLimit && (grounded || airTime < airJumpTime)) {
             timeSinceLastJump = 0.0f;
@@ -71,6 +87,7 @@ public class CharacterControl : MonoBehaviour
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
             //Play jump sound
             audioSource.PlayOneShot(jumpSound);
+            jumpCount++;
         }
 
         // Add fast fall speed
@@ -82,6 +99,7 @@ public class CharacterControl : MonoBehaviour
         }
         else if (grounded) {
             fastFalling = false;
+            crouchCount++;
         }
 
         // Set animation parameters

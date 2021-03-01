@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Audio;
+
 public class ScoreMenu : MonoBehaviour
 {
     public GameObject menu; // The game over menu object
@@ -47,5 +48,4 @@ public class ScoreMenu : MonoBehaviour
         scoreMenuText.text = "Score: " + score.ToString();
         highScoreMenuText.text = "High Score: " + highScore.ToString();
     }
-    
 }

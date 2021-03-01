@@ -52,7 +52,7 @@ public class Achievements : MonoBehaviour
                 achTitleText.text = "Collector " + (i + 1);
                 achDescText.text = "Obtain " + code + " powerups";
             }
-            yield return new WaitForSeconds(4);
+            yield return new WaitForSecondsRealtime(4);
 
             //Resetting UI
             achNote.SetActive(false);

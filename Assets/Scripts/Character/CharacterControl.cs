@@ -91,15 +91,19 @@ public class CharacterControl : MonoBehaviour
         }
 
         // Add fast fall speed
-        if (Input.GetKeyDown(crouchInput) && !grounded && !fastFalling) {
-            fastFalling = true;
-            if (rb.velocity.y > -fastFallSpeed) {
-                rb.velocity = new Vector2(rb.velocity.x, -fastFallSpeed);
+        if (Input.GetKeyDown(crouchInput)) {
+            if (!grounded && !fastFalling) {
+                fastFalling = true;
+                if (rb.velocity.y > -fastFallSpeed) {
+                    rb.velocity = new Vector2(rb.velocity.x, -fastFallSpeed);
+                }
+            }
+            else if (grounded) {
+                crouchCount++;
             }
         }
         else if (grounded) {
             fastFalling = false;
-            crouchCount++;
         }
 
         // Set animation parameters

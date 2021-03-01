@@ -14,15 +14,16 @@ public class Achievements : MonoBehaviour
     public int numOfElem = 5;
     public Text achTitleText; // Text displaying achievement title
     public Text achDescText; // Text displaying achievement description
+
     void Update()
     {
         for (i = 0; i < numOfElem; i++)
         {
             if (ScoreMenu.score == scoreArray[i])
                 StartCoroutine(TriggerAch(scoreArray[i], "score"));
-            if (CharacterPrototype.crouchCount == crouchArray[i])
+            if (CharacterControl.crouchCount == crouchArray[i])
                 StartCoroutine(TriggerAch(crouchArray[i], "crouch"));
-            if (CharacterPrototype.jumpCount == jumpArray[i])
+            if (CharacterControl.jumpCount == jumpArray[i])
                 StartCoroutine(TriggerAch(jumpArray[i], "jump"));
             if (Item.itemCount == powerArray[i])
                 StartCoroutine(TriggerAch(powerArray[i], "powerup"));

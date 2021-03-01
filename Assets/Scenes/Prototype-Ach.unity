@@ -540,8 +540,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   achNote: {fileID: 1078452269}
-  achTitle: {fileID: 984114042}
-  achDesc: {fileID: 0}
   scoreArray: 3200000064000000fa000000f4010000e803000088130000
   jumpArray: 0a000000190000003200000064000000fa000000
   crouchArray: 0a000000190000003200000064000000fa000000
@@ -1861,8 +1859,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   achNote: {fileID: 1078452269}
-  achTitle: {fileID: 0}
-  achDesc: {fileID: 0}
   scoreArray: 3200000064000000fa000000f4010000e8030000
   jumpArray: 0a000000190000003200000064000000fa000000
   crouchArray: 0a000000190000003200000064000000fa000000

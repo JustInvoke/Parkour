@@ -24,6 +24,9 @@ public class CharacterManager : MonoBehaviour
         _character.GetComponent<CharacterControl>().dieEvent.AddListener(() => {
             ScoreMenu scoreMenu = FindObjectOfType<ScoreMenu>();
             if (scoreMenu != null) { scoreMenu.ShowMenu(); }
+
+            Achievements achievements = FindObjectOfType<Achievements>();
+            if (achievements != null) { achievements.SaveAchievements(); }
         });
     }
 

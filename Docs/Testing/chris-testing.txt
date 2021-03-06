@@ -1,0 +1,43 @@
+Equivalence classes and test cases to cover those cases:
+
+-
+|Level Design: Increasing Difficulty
+-
+There are two types of chunks, you can call them equivalence classes
+in terms of chunk difficulty, easy and hard chunks. Easy chunks are
+easy to clear regardless of what chunk preceeded them. Hard chunks are
+POTENTIALLY hard to clear depending on the previous chunk and speed of the
+character. Which is why there is a conditional for spawning in a chunk:
+after a certain milestone a hard chunk will spawn and normal ones spawn
+otherwise. The only parts to this mechanism is having two arrays that hold
+easy and hard chunks and a conditional to select between the two. The
+conditional checks to make sure that the milestone has been reached in order
+to spawn the hard chunk. In any case, a random chunk will be chosen from the
+appropriate array.
+
+In order to test that everything was working correctly, I made sure that
+all chunks eventually spwaned in. This was to ensure that the random number
+generator was able to pick any chunk in the array.
+
+Separating and classifying chunks as easy or hard was a form of testing. I
+played the game until I was satisfied with the classification of chunks. Which
+is why I'm confident in calling the easy and hard chunk groups "equivalence"
+classes (they're all equally difficult in their respective class with the 
+exception of the chunks that start with the number 4 at the maximum speed).
+
+Apart from that, all that needed to be tested for was to assert that the chunks were
+spawning after that milestone and that the hard chunks would spawn in more frequently
+over time (there is another part of code that increases the frequency that the hard
+chunks spawn over time).
+
+A second aspect of increasing difficulty is speeding up the character over time.
+After a certain distance has been traveled, the character would speed up. There
+wasn't much testing to be done besides ensuring that the speed was increasing after
+the milestone was reached.
+
+-
+|Scoring
+-
+Scoring was just based off of the distance that the character traveled so as long as the
+HUD score counter showed the same number (near the same number since distance is a float
+and score is an integer) as the x position of the character game object.

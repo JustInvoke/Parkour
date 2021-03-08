@@ -1,0 +1,50 @@
+Features tested by Justin Couch:
+
+Achievements:
+
+There are 4 different types of achievements that can be earned and each
+of them is essentially its own equivalence class. The types are total jump
+count, total slide count, total powerup count, and maximum score earned.
+The equivalence class of the jump count achievements is triggered when the
+player has jumped a certain number of times. For example, there are achievements
+for jumping 10 times, 25 times, 50 times, 100 times, and 250 times. Each of these
+only differs in the number of jumps required to trigger each achievement. Another
+equivalence class, that for maximum score earned, is triggered when the player
+reaches a certain score value. The values for each achievement in this class are 50,
+100, 250, 500, and 1000. What differentiates these two equivalance classes, along
+with the others, is the metric tracked and compared to preset milestone values.
+
+Achievement testing was carried out by first deleting save data corresponding to
+achievements (to reset them) and then performing the actions necessary to increment
+the relevant values. For example, to test the jump count achievements, I would
+press the up arrow key 10 times and check to see if the achievement notification
+popped up. Manual counting for me was done both by mentally counting and by printing
+the current count value. Then I would restart the game (to verify persistence of
+count tracking) and press the up arrow key 15 more times to check if the next
+achievement notification would display (for 25 total jumps). I did not test all
+possible jump count achievements up to 250 because the nature of the equivalence
+class allows me to believe the achievements will function correctly when the count
+reaches the correct value. Achievement milestone values are stored in an array that
+is constantly looped over and checked to see if a given achievement value has been
+reached. If some of these comparisons work correctly, then it's safe to assume that
+all of them work since all values in the array are just integers. Similar testing
+was peformed for the other equivalence classes.
+
+-------------
+
+End Scene:
+
+The end scene is just a menu that appears when the player runs into an obstacle or
+falls in a hole. It displays the score for the round and the all time high score
+below that. It also has two buttons for either starting a new round or returning
+to the main menu. There are no real equivalence classes in this context as the
+testing just consists of making sure the menu appears properly, the score values
+displayed are correct, and the buttons work.
+
+When the round ends, I made sure that the character is disabled and the menu shows
+up. I tested the score value text by comparing the displayed value to the score earned
+while playing a round. I tested the high score value text by getting a new high score
+and making sure it replaced the old value. This also involved restarting the game to
+test persistence of the high score value. Testing the buttons was just a matter of
+clicking on them and seeing that they either restarted the game or took me back to
+the main menu as intended.

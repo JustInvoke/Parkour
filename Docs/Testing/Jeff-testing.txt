@@ -1,0 +1,13 @@
+Jeff Pham feature testing:
+
+Side Scrolling:
+The testing was done by starting the game and examining player movement.
+Equivalence classes are the spawning, background, and moving objects.
+As the game progresses, the screen moves from right to left.  
+
+Menu Buttons
+The buttons tested in the Main Menu: Start, Quit
+Start initiates the game. Quit exits the program. 
+The buttons in the Death Screen: Restart, Quit
+Restart reloads the beginning of the game. Quit returns to the main menu.
+ 

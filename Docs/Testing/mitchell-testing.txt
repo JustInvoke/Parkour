@@ -1,0 +1,20 @@
+Sound:
+1. Main Menu sound test
+The only sounds that play in the main menu are tics heard when cycling through the options. I tested this by using the up and down arrow keys and cycled through options, and the sounds worked properly by only playing once when tapping the keys.
+2. Game Over Menu sound test
+Same as the main menu sound test, but for game over menu
+3. Gameplay sound test
+Sounds that play:
+-Walking SFX
+This should play only while the character is on the ground. Every time the character jumps, the sounds shouldn't play, and every time the character is falling/walks off a ledge, the sound also shouldn't play. Otherwise, it should always play at a constant rate. 
+-Jump SFX
+Whevever the jump key is pressed, the jump sfx plays once.
+-Slide SFX
+Whenever the crouch key is pressed, the slide sfx plays once.
+-Death SFX
+Whenever the character dies, whether it is by spikes, running into a surface, or falling into a pitfall, the death sfx plays once.
+4. High Score sound test
+First, I clear the playerprefs to reset the high score. Then, every score will be a high score since the high score is 0. When the character dies, the high score sound will play once.
+
+Animation:
+Animation testing is subject to the character's sprite's states. While the character is not crouching, the character will have its running animation played. Otherwise, the sprite state is changed to either the jump or crouch.

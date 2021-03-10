@@ -1,0 +1,22 @@
+Features tested by Liangyu Shi:
+Control of the character:
+1.Jump
+2.Dash
+3.Accelerate
+4.Slow Down
+This four control is supported by the arrows on the keyboard.
+
+The character will move with the camera if no button is pressed.
+Jump
+After press up arrow, the character will jump and the player can hear the sound of jump. Before the character touch the ground, no second jump will be allowed.
+Dash
+Holding Dash on the ground, the character will have less height so that he can escape from some chunks.
+Accelerate
+During both jumping and running, press right arrow can accelerate the character, enabling him to jump to a longer distance. The player need to hold down the button to keep accelerate.
+
+
+
+Item:Calabash
+Character can do super jump after pick up the calabash
+
+After press up arrow, the character will jump with double height.
